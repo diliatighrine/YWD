@@ -1,11 +1,12 @@
 // TableServiceImpl.java
 package com.example.demo.service;
 
-import com.example.demo.model.Table;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Table;
 
 @Service
 public class TableServiceImpl implements TableService {
@@ -23,7 +24,6 @@ public class TableServiceImpl implements TableService {
     public List<Table> getAllTables() {
         return tables;
     }
-
 
     private long generateUniqueId() {
 

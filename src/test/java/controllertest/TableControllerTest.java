@@ -19,7 +19,7 @@ public class TableControllerTest {
 
     @BeforeEach
     public void setUp() {
-       // a voir ensemble ce qu'on doit rajouter
+        // a voir ensemble ce qu'on doit rajouter
     }
 
     @Test
@@ -27,8 +27,8 @@ public class TableControllerTest {
         String requestBody = "{\"name\":\"TestTable\"}";
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/tables")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(requestBody))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("TestTable"));
     }
@@ -36,10 +36,9 @@ public class TableControllerTest {
     @Test
     public void testGetAllTables() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/tables")
-                        .contentType(MediaType.APPLICATION_JSON))
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isArray());
     }
-
 
 }
