@@ -1,4 +1,4 @@
-// Table.java
+
 package com.example.demo.model;
 
 import java.util.List;
@@ -6,20 +6,19 @@ import java.util.List;
 public class Table {
     private Long id;
     private String name;
+
     private List<TableRow> data;
 
     public Table(String name) {
         this.name = name;
     }
 
-    // Constructeur avec id et name
     public Table(Long id, String name) {
         this.id = id;
         this.name = name;
         this.data = null;
     }
 
-    // Getters et setters pour id, name et data
     public Long getId() {
         return id;
     }
@@ -40,14 +39,12 @@ public class Table {
         this.data = data;
     }
 
-    public void addRow(String row2) {
-        if (row2 == null || row2.isEmpty()) {
+    public void addRow(List<String> rowData) {
+        if (rowData == null || rowData.isEmpty()) {
             throw new IllegalArgumentException("La ligne ne peut pas être null ou vide.");
         }
 
-        TableRow row = new TableRow(); // Créer une nouvelle instance de TableRow
-        row.setData(row2); // Définir les données de la ligne
-
+        TableRow row = new TableRow(rowData); // Créer une nouvelle instance de TableRow avec les données
         data.add(row); // Ajouter la ligne à la liste de données
     }
 
@@ -58,13 +55,24 @@ public class Table {
         data.remove(index);
     }
 
+    // à faire
     public void addData(List<String> row) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addData'");
+
     }
 
     public Object getRow(int i) {
         return i;
+    }
+    // à faire
+
+    public void updateRow(int i, List<String> row2) {
+        throw new UnsupportedOperationException("Unimplemented method 'updateRow'");
+    }
+
+    public void setName(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setName'");
     }
 
 }

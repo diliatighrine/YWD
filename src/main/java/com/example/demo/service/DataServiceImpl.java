@@ -1,23 +1,17 @@
 package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.parquet.hadoop.ParquetReader;
-import org.apache.parquet.hadoop.api.ReadSupport;
-import org.apache.parquet.hadoop.example.GroupReadSupport;
-import org.apache.parquet.hadoop.example.GroupWriteSupport;
-import org.apache.parquet.hadoop.metadata.CompressionCodecName;
-import org.apache.parquet.schema.MessageType;
-import org.apache.parquet.schema.MessageTypeParser;
-import org.apache.parquet.schema.Type;
 import org.apache.parquet.example.data.Group;
-import org.apache.parquet.example.data.simple.SimpleGroup;
+import org.apache.parquet.hadoop.ParquetReader;
+import org.apache.parquet.hadoop.example.GroupReadSupport;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class DataServiceImpl implements DataService {
@@ -49,7 +43,8 @@ public class DataServiceImpl implements DataService {
             Configuration configuration = new Configuration();
 
             // Créer un lecteur Parquet
-            ParquetReader<Group> parquetReader = ParquetReader.builder(new GroupReadSupport(), new Path("parquet_file_path"))
+            ParquetReader<Group> parquetReader = ParquetReader
+                    .builder(new GroupReadSupport(), new Path("parquet_file_path"))
                     .withConf(configuration)
                     .build();
 
